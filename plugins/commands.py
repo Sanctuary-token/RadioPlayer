@@ -28,10 +28,9 @@ from config import Config
 
 CHAT=Config.CHAT
 msg=Config.msg
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Radio Player V3.0** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. Made with ❤️ By @AsmSafone 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Radio Player V3.0** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop."
 HELP_TEXT = """
 🎧 **Need Help ?** 
-__(Join @SafoTheBot For Support)__
 
 🏷️ **Common Commands** :
 
@@ -58,22 +57,13 @@ __(Join @SafoTheBot For Support)__
 \u2022 `/unmute` - unmute the vc userbot
 \u2022 `/restart` - restart the bot
 
-© **Powered By** : 
-**@AsmSafone | @SafoTheBot** 👑
+
 """
 
 
 @Client.on_message(filters.command(["start", f"start@{USERNAME}"]))
 async def start(client, message):
     buttons = [
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/AsmSafone"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/SafoTheBot"),
-            ],
-            [
-                InlineKeyboardButton("MORE BOTS", url="https://t.me/AsmSafone/173"),
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/AsmSafone/RadioPlayer/tree/V3.0"),
-            ],
             [
                 InlineKeyboardButton("❔ HOW TO USE ❔", callback_data="help"),
             ]
@@ -89,14 +79,6 @@ async def start(client, message):
 async def show_help(client, message):
     buttons = [
             [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/AsmSafone"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/SafoTheBot"),
-            ],
-            [
-                InlineKeyboardButton("MORE BOTS", url="https://t.me/AsmSafone/173"),
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/AsmSafone/RadioPlayer/tree/V3.0"),
-            ],
-            [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
             ]
             ]
@@ -107,7 +89,7 @@ async def show_help(client, message):
     await mp.delete(message)
 @Client.on_message(filters.command(["restart", f"restart@{USERNAME}"]) & filters.user(Config.ADMINS) & (filters.chat(CHAT) | filters.private))
 async def restart(client, message):
-    await message.reply_text("🔄 **Restarting... Join @AsmSafone!**")
+    await message.reply_text("🔄 **Restarting...")
     await mp.delete(message)
     process = FFMPEG_PROCESSES.get(CHAT)
     if process:
