@@ -165,14 +165,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             pass
     elif query.data=="help":
         buttons = [
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/AsmSafone"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/SafoTheBot"),
-            ],
-            [
-                InlineKeyboardButton("MORE BOTS", url="https://t.me/AsmSafone/173"),
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/AsmSafone/RadioPlayer/tree/V3.0"),
-            ],
+            
+        
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
             ]
