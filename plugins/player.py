@@ -560,14 +560,6 @@ allcmd = ["play", "current", "playlist", f"play@{USERNAME}", f"current@{USERNAME
 
 @Client.on_message(filters.command(allcmd) & filters.group & ~filters.chat(CHAT))
 async def not_chat(_, m: Message):
-    buttons = [
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/AsmSafone"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/SafoTheBot"),
-            ],
-            [
-                InlineKeyboardButton("🤖 MAKE YOUR OWN BOT 🤖", url="https://heroku.com/deploy?template=https://github.com/AsmSafone/RadioPlayer/tree/V3.0"),
-            ]
-         ]
-    k=await m.reply_text("<b>You Can't Use This Bot In This Group! 🤷‍♂️ But You Can Make Your Own Bot Like This From The [Source Code](https://github.com/AsmSafone/RadioPlayer/tree/V3.0) Below!</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+   
+    k=await m.reply_text("<b>You Can't Use This Bot In This Group! ", disable_web_page_preview=True, )
     await mp.delete(m)
